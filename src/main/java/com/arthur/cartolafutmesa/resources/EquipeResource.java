@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.arthur.cartolafutmesa.models.Equipe;
 import com.arthur.cartolafutmesa.repository.EquipeRepository;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/cartola")
 public class EquipeResource {
@@ -39,7 +41,7 @@ public class EquipeResource {
 	
 	@DeleteMapping("/equipe")
 	public void deletaEquipe(@RequestBody Equipe equipe){
-		equipeRepository.delete(equipe);;
+		equipeRepository.delete(equipe);
 	}
 	
 	@PutMapping("/equipe")
