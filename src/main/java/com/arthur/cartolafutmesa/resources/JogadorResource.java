@@ -32,7 +32,7 @@ public class JogadorResource {
 	}
 	
 	@GetMapping("/jogador/{id}")
-	public Jogador listaEquipeUnica(@PathVariable(value="id")long id){
+	public Jogador listaJogadorUnico(@PathVariable(value="id")long id){
 		return jogadorRepository.findById(id);
 	}
 	

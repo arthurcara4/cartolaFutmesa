@@ -24,15 +24,15 @@ public class Equipe implements Serializable{
 	
 	private String nome;
 	
-	@OneToMany(mappedBy = "equipe", cascade = CascadeType.ALL)
-    private Set<Jogador> jogadores;
+	//@OneToMany(mappedBy = "equipe", cascade = CascadeType.ALL)
+    //private Set<Jogador> jogadores;
 	
-	public Equipe(String nome, Jogador... jogadores) {
+/*	public Equipe(String nome, Jogador... jogadores) {
         this.nome = nome;
         this.jogadores = Stream.of(jogadores).collect(Collectors.toSet());
         this.jogadores.forEach(x -> x.setEquipe(this));
     }
-	
+*/	
 	public Equipe(String nome) {
         this.nome = nome;
     }
