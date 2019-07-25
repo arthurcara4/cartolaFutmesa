@@ -30,7 +30,7 @@ public class RodadaResource {
 	}
 	
 	@GetMapping("/rodada/{id}")
-	public Rodada listaEquipeUnica(@PathVariable(value="id")long id){
+	public Rodada listaRodadaUnica(@PathVariable(value="id")long id){
 		return rodadaRepository.findById(id);
 	}
 	

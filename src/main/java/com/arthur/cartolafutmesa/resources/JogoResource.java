@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.arthur.cartolafutmesa.models.Equipe;
 import com.arthur.cartolafutmesa.models.Jogador;
 import com.arthur.cartolafutmesa.models.Jogo;
+import com.arthur.cartolafutmesa.models.Rodada;
 import com.arthur.cartolafutmesa.repository.JogadorRepository;
 import com.arthur.cartolafutmesa.repository.JogoRepository;
 
@@ -35,6 +36,11 @@ public class JogoResource {
 	@GetMapping("/jogo/{id}")
 	public Jogo listaJogoUnico(@PathVariable(value="id")long id){
 		return jogoRepository.findById(id);
+	}
+	
+	@GetMapping("/rodada/{rodada_id}/jogos")
+	public List<Jogo> listaJogosDaRodada(@PathVariable(value="rodada_id")Rodada rodada){
+		return jogoRepository.findByRodada(rodada);
 	}
 	
 	@GetMapping("/equipe/{equipe_id}/jogos")

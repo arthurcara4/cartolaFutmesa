@@ -18,10 +18,10 @@ public class Rodada implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private Date data;
+	private Date dataRodada;
 	
-	public Rodada(Date data){
-		this.data = data;
+	public Rodada(Date dataRodada){
+		this.dataRodada = dataRodada;
 	}	
 	
 	public Rodada(){
@@ -36,12 +36,12 @@ public class Rodada implements Serializable{
 		this.id = id;
 	}
 
-	public Date getData() {
-		return data;
+	public Date getDataRodada() {
+		return dataRodada;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setDataRodada(Date dataRodada) {
+		this.dataRodada = dataRodada;
 	}
 
 }
