@@ -1,12 +1,17 @@
 package com.arthur.cartolafutmesa.models;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -24,6 +29,15 @@ public class Jogador implements Serializable{
     @JoinColumn
     private Equipe equipe;
 	
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            },
+            mappedBy = "jogadores")
+    private Set<Usuario> usuarios = new HashSet<>();
+
+	
 	public Jogador(String nome){
 		this.nome = nome;
 	}	
@@ -37,6 +51,14 @@ public class Jogador implements Serializable{
 		this.equipe = equipe;
 	}
 	
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
 	public long getId() {
 		return id;
 	}

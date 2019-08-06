@@ -16,15 +16,20 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.arthur.cartolafutmesa.models.Equipe;
 import com.arthur.cartolafutmesa.repository.EquipeRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/cartola")
+@Api(value="API REST CartolaFutmesa")
 public class EquipeResource {
 	
 	@Autowired
 	EquipeRepository equipeRepository;
 	
 	@GetMapping("/equipes")
+	@ApiOperation(value="Retorna a lista de Equipes")
 	public List<Equipe> listaEquipes(){
 		return equipeRepository.findAll();
 	}
